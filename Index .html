@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brinson Enterprise | IT Management & Digital Solutions</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* ==================== NAVBAR ==================== */
+    .navbar {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(6px);
+      padding: 0.8rem 1rem;
+    }
+
+    .navbar .nav-link {
+      color: #fff !important;
+      margin: 0 10px;
+      border: 2px solid transparent;
+      border-radius: 25px;
+      padding: 6px 15px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar .nav-link:hover {
+      border-color: #00bcd4;
+      background-color: #00bcd4;
+      color: #000 !important;
+    }
+
+    /* ==================== HERO ==================== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+
+    .hero h2 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #e0e0e0;
+      margin-bottom: 2rem;
+    }
+
+    .hero .btn {
+      border-radius: 25px;
+      padding: 10px 25px;
+      margin: 0 10px;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background-color: #00bcd4;
+      border: none;
+    }
+
+    .btn-outline-light:hover {
+      background-color: #fff;
+      color: #000;
+    }
+
+    /* ==================== SECTION STYLES ==================== */
+    section {
+      padding: 80px 0;
+    }
+
+    #about {
+      background-color: #c2cbd3;
+      color: #333;
+    }
+
+    #services {
+      background-color: #f4f4f4;
+      position: relative;
+    }
+
+    #testimonials {
+      background-color: #c2cbd3;
+    }
+
+    footer {
+      background-color: #111;
+      color: #fff;
+    }
+
+    /* ==================== SERVICES ==================== */
+    .service-card {
+      position: relative;
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      height: 320px;
+      color: #fff;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .service-card video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 1;
+      transition: background 0.3s ease;
+    }
+
+    .service-content {
+      position: relative;
+      z-index: 2;
+      padding: 30px;
+    }
+
+    .service-card:hover::after {
+      background: rgba(0, 0, 0, 0.35);
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer input, footer textarea {
+      background-color: #b4c0c9;
+      border: 1px solid #444;
+      color: #fff;
+    }
+
+    footer input::placeholder, footer textarea::placeholder {
+      color: #aaa;
+    }
+
+    footer button {
+      background-color: #00bcd4;
+      border: none;
+      font-weight: 600;
+    }
+
+    footer button:hover {
+      background-color: #009cb5;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero h2 { letter-spacing: 4px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand text-white fw-bold" href="#">Brinson Enterprise</a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <video autoplay muted loop playsinline>
+      <source src="AdobeStock_1515569781.mov" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <h2>Innovate | Integrate | Automate</h2>
+      <h1>Brinson Enterprise</h1>
+      <p>Empowering businesses through automation, innovation, and digital transformation.</p>
+      <div>
+        <a href="#services" class="btn btn-primary">Our Services</a>
+        <a href="#contact" class="btn btn-outline-light">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container text-center">
+      <h2 class="fw-bold mb-4">About Us</h2>
+      <p class="lead mb-5">
+        Brinson Enterprise specializes in IT management and workflow automation using Microsoft Power Platform,
+        SharePoint, and AI-driven solutions. We help organizations streamline processes and scale with confidence.
+      </p>
+      
+    </div>
+  </section>
+
+  <!-- Services Section with Video Backgrounds -->
+  <section id="services">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-5">Our Services</h2>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="service-card">
+          <video autoplay muted loop playsinline>
+            <source src="WebDev.mov" type="video/mp4">
+          </video>
+          <div class="service-content">
+            <i class="fa-solid fa-laptop-code fa-3x mb-3 text-info"></i>
+            <h5>Application Development</h5>
+            <p>Smart, secure, and scalable applications — built to automate and accelerate your business. Try our new HR Tool.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="service-card">
+          <video autoplay muted loop playsinline>
+            <source src="HRSolutions.mov" type="video/mp4">
+          </video>
+          <div class="service-content">
+            <i class="fa-solid fa-cloud fa-3x mb-3 text-info"></i>
+            <h5>Cloud Integration</h5>
+            <p>Seamless connections between data, apps, and automation systems in the cloud.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="service-card">
+          <video autoplay muted loop playsinline>
+            <source src="automations.mov" type="video/mp4">
+          </video>
+          <div class="service-content">
+            <i class="fa-solid fa-robot fa-3x mb-3 text-info"></i>
+            <h5>AI & Automation</h5>
+            <p>Boost productivity by embedding smart AI automation into daily operations.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="service-card">
+          <video autoplay muted loop playsinline>
+            <source src="AdobeStock_483122794.mov" type="video/mp4">
+          </video>
+          <div class="service-content">
+            <i class="fa-solid fa-bullhorn fa-3x mb-3 text-info"></i>
+            <h5>Visual Innovation</h5>
+            <p>Explore the future of digital expression through graphic design, motion visuals, AI-driven media and interactive storytelling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- People Pro HR -->
+  <section id="people-pro-hr" style="background-color:#c2cbd3;; color:#000;">
+  <div class="container text-center">
+    <h2 class="fw-bold mb-4">People Pro HR</h2>
+    <p class="lead mb-5">
+      Streamline your workforce management with People Pro HR – a modern, all-in-one human resources solution designed to simplify workforce management and empower organizations to perform at their best.
+    </p>
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-4 mb-md-0">
+        <!-- Optional: Replace with a video or image -->
+        <img 
+  src="PeopleProHRLogo.png" 
+  alt="People Pro HR Logo" 
+  class="img-fluid rounded shadow">
+
+      </div>
+      <div class="col-md-6 text-start">
+        <ul class="list-unstyled fs-5">
+          <li class="mb-3"><i class="fa-solid fa-check text-primary me-2"></i>Self, peer, and manager performance reviews</li>
+          <li class="mb-3"><i class="fa-solid fa-check text-primary me-2"></i>AI-powered goal suggestions and tracking</li>
+          <li class="mb-3"><i class="fa-solid fa-check text-primary me-2"></i>Automated notifications and workflow integration</li>
+          <li class="mb-3"><i class="fa-solid fa-check text-primary me-2"></i>Secure SharePoint and Microsoft Power Platform integration and more</li>
+        </ul>
+        <a href="tel:+16892405033" class="btn btn-primary mt-3">Call Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer / Contact Section -->
+  <footer id="contact">
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <h3 class="fw-bold mb-3">Contact Us</h3>
+          <p>Let’s build something great together. Reach out to us and we’ll get back to you soon.</p>
+          <ul class="list-unstyled">
+            <li><i class="fa-solid fa-envelope me-2"></i> dc@brinsonenterprise.com</li>
+            <li><i class="fa-solid fa-phone me-2"></i> (689) 240-5033</li>
+          </ul>
+        </div>
+
+        <div class="col-md-6">
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control" placeholder="Your Name" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+          </form>
+
+          <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+  
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Collect form values
+    const data = {
+      Name: form.querySelector('input[type="text"]').value.trim(),
+      Email: form.querySelector('input[type="email"]').value.trim(),
+      Message: form.querySelector('textarea').value.trim()
+    };
+
+    // Power Automate URL
+    const url = "https://defaultdfcf047bad8d47ddbbbf7b64d8d633.5b.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/8b9457d2ede5462ba2ccb8ff41bb0005/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=elySBFZVir85dv1Ef7vDN51Xj_WivlN-t6I_kyu11eA";
+
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        alert("✅ Message sent successfully!");
+        form.reset();
+      } else {
+        alert("⚠️ There was an issue sending your message. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("⚠️ Error submitting form. Check console for details.");
+    }
+  });
+});
+</script>
+
+        </div>
+      </div>
+
+      <hr class="my-4 border-secondary">
+      <div class="text-center">
+        <p class="mb-0">© 2025 Brinson Enterprise. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
