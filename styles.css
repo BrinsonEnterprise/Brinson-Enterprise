@@ -1,0 +1,80 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #4450e6, #343a4f);
+  height: 100vh;
+  color: #f6f3ed;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.hero h1, .hero p {
+  opacity: 0;
+  transition: all 0.8s ease-in-out;
+}
+
+/* Navbar */
+.navbar .nav-link {
+  color: #2c2c2c !important;
+  font-weight: 500;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  color: #007bff !important;
+}
+
+/* Section Animation */
+.fade-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-in-out;
+}
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Services */
+.service-card {
+  border: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff;
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Floating Buttons */
+.floating-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1050;
+  border-radius: 50%;
+  animation: floatMove 6s infinite ease-in-out alternate;
+  width: 55px;
+  height: 55px;
+}
+#float-btn-2 {
+  bottom: 100px;
+  animation-delay: 2s;
+}
+
+@keyframes floatMove {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(-10px, -20px); }
+  100% { transform: translate(10px, 10px); }
+}
+
+/* Footer */
+footer {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
